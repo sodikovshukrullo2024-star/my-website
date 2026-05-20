@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shukrull — Engineer</title>
+  <meta name="description" content="Shukrull — Engineer. Building reliable, well-crafted software." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fbfbf9;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --line: #ecece8;
+      --accent: #2f6f4f;        /* single accent: deep green */
+      --accent-soft: #eaf3ee;
+      --radius: 14px;
+      --maxw: 720px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f0f0e;
+        --surface: #181816;
+        --text: #f2f2ef;
+        --muted: #9a9a93;
+        --line: #2a2a27;
+        --accent: #6cc295;
+        --accent-soft: #16241d;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: clamp(3.5rem, 8vw, 7rem) 1.5rem 4rem;
+    }
+
+    /* ---------- Hero ---------- */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .02em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: .35rem .75rem;
+      border-radius: 999px;
+      margin-bottom: 1.75rem;
+    }
+    .badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+      70%  { box-shadow: 0 0 0 8px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(2.8rem, 9vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    h1 .accent { color: var(--accent); }
+
+    .tagline {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+      max-width: 38ch;
+      margin-bottom: 2.25rem;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .95rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: .7rem 1.25rem;
+      border-radius: 999px;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    @media (prefers-color-scheme: dark) { .btn-primary { color: #0f0f0e; } }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ---------- Divider ---------- */
+    .rule {
+      height: 1px;
+      background: var(--line);
+      margin: clamp(3rem, 7vw, 4.5rem) 0;
+      border: none;
+    }
+
+    /* ---------- About ---------- */
+    .section-label {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+    .about p {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .about p:last-child { margin-bottom: 0; }
+    .about .soft { color: var(--muted); }
+
+    /* ---------- Skills ---------- */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: .5rem;
+    }
+    .chip {
+      font-size: .9rem;
+      font-weight: 500;
+      padding: .45rem .9rem;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+      transition: border-color .2s ease, color .2s ease;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: clamp(3rem, 7vw, 4.5rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .social { display: flex; gap: 1.25rem; }
+    .social a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .95rem;
+      font-weight: 500;
+      transition: color .2s ease;
+    }
+    .social a:hover { color: var(--accent); }
+    .copyright { font-size: .85rem; color: var(--muted); }
+
+    /* fade-in */
+    .fade {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: rise .7s ease forwards;
+    }
+    .fade:nth-child(2) { animation-delay: .06s; }
+    .fade:nth-child(3) { animation-delay: .12s; }
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade { animation: none; opacity: 1; transform: none; }
+      .badge .dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+
+    <!-- Hero -->
+    <section>
+      <span class="badge fade"><span class="dot"></span> Available for work</span>
+      <h1 class="fade">Hi, I'm <span class="accent">Shukrull</span>.</h1>
+      <p class="tagline fade">An engineer who enjoys turning hard problems into clean, dependable software.</p>
+      <div class="cta fade">
+        <a class="btn btn-primary" href="mailto:teshabayevmakhkambek@gmail.com">
+          Get in touch &rarr;
+        </a>
+        <a class="btn btn-ghost" href="#about">Learn more</a>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- About -->
+    <section id="about" class="about">
+      <p class="section-label">About</p>
+      <p>I'm an engineer focused on building things that are reliable, maintainable, and a pleasure to use. I care about the details — clean code, thoughtful design, and systems that hold up under pressure.</p>
+      <p class="soft">When I'm not building, I'm usually learning something new, tinkering with side projects, or figuring out how things work under the hood.</p>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Skills -->
+    <section>
+      <p class="section-label">What I work with</p>
+      <div class="chips">
+        <span class="chip">Software Design</span>
+        <span class="chip">Problem Solving</span>
+        <span class="chip">Automation</span>
+        <span class="chip">Systems</span>
+        <span class="chip">Web</span>
+        <span class="chip">Tooling</span>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="social">
+        <a href="mailto:teshabayevmakhkambek@gmail.com">Email</a>
+        <a href="https://github.com/Shukrull007" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <span class="copyright">&copy; 2026 Shukrull</span>
+    </footer>
+
+  </main>
+</body>
+</html>
